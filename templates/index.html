@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+      }
+    
+      .bg {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+      }
+    
+      .bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+  .signup-button {
+    margin-left: auto; 
+  }
+
+  .signup-link {
+    padding: 10px 15px;
+    background-color: #e8491d; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .signup-link:hover {
+    background-color: #ff6347;
+  }
+
+  footer {
+  background-color: #171c24;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center; 
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.footer-links a:hover {
+  color: #e8491d;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 15px;
+  padding-bottom: 20px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #e8491d;
+}
+
+.copyright {
+  font-size: 14px;
+  text-align: center;
+}
+
+</style>
+</head>
+<html>
+  <nav>
+    <div class="menu-icon">
+       <span class="fas fa-bars"></span>
+    </div>
+    <div class="logo">
+       CINESEARCHPRO
+    </div>
+    <div class="nav-items">
+       <li><a href="#">Home</a></li>
+       <li><a href="{% url 'signup' %}">Movie</a></li>
+       <li><a href="#">About</a></li>
+    </div>
+    <div class="signup-button">
+      <a href="{% url 'signup' %}" class="signup-link">Signup</a>
+    </div>
+ </nav>
+
+ <div class="bg">
+  <img src="{% static 'images/movie.jpg' %}" alt="loading...">
+</div>
+
+<footer>
+
+    <div class="social-icons">
+      <a href="#" class="fab fa-facebook"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+    <div class="copyright">
+      &copy; 2023 CINESEARCHPRO. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

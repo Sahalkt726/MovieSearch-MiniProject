@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Signup Page</title>
+        <style>
+            body {
+                font-family: "Arial", sans-serif;
+                background-color: #171c24;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                text-align: left;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #333;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            a {
+                color: #4caf50;
+                text-decoration: none;
+                margin-top: 10px;
+                display: inline-block;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+            input::placeholder {
+                color: #aaa;
+            }
+
+            .error-message {
+                color: red;
+                font-size: 14px;
+                margin-top: 5px;
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post">
+            <h1 style="text-align: center">SignUp</h1>
+            {% csrf_token %}
+
+            <label for="{{ form.username.id_for_label }}">Username:</label>
+            <input type="text" name="{{ form.username.name }}" placeholder="Enter your username" required />
+            {% for error in form.errors.username %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+            <br />
+
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            <input type="email" name="{{ form.email.name }}" placeholder="Enter your email" required />
+            {% for error in form.errors.email %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+            <br />
+
+            <label for="{{ form.password1.id_for_label }}">Password:</label>
+            <input type="password" name="{{ form.password1.name }}" placeholder="Enter your password" required />
+            {% for error in form.errors.password1 %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+            <br />
+
+            <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+            <input type="password" name="{{ form.password2.name }}" placeholder="Confirm your password" required />
+            {% for error in form.errors.password2 %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+            <br />
+
+            <button type="submit">Signup</button>
+            <p>Already have an account? <a href="{% url 'login' %}"> Login</a></p>
+        </form>
+    </body>
+</html>
